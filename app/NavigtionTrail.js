@@ -5,6 +5,7 @@ import WelcomeScreen from "./screens/WelcomeScreen";
 import Splashscreen from "./screens/Splashscreen"
 import FrequencyScreen from "./screens/FrequencyScreen"
 import TimePickScreen from "./screens/TimePickScreen"
+import ProflePage from './screens/ProflePage';
 
 
 
@@ -19,6 +20,7 @@ function NavigtionTrail() {
           <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown: false}} />
           <Stack.Screen name="Welcome1" component={FrequencyScreen} options={{headerShown: false}} />
           <Stack.Screen name="Welcome2" component={TimePickScreen} options={{headerShown: false}} />
+          <Stack.Screen name="Welcome3" component={ProflePage} options={{headerShown: false}} />
 
         </Stack.Navigator>
       </NavigationContainer>

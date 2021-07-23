@@ -9,7 +9,7 @@ const Sreen = ({styles,children}) => {
     return (
         <LinearGradient
         colors={['#A143FF', '#348AFF']}
-        style={[styles,{height:dimension1,flex:1}]}
+        style={[{height:dimension1,flex:1},styles]}
       >
           {children}
       </LinearGradient>
