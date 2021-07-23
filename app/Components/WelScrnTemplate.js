@@ -6,7 +6,7 @@ import Sreen from "./Sreen"
 const WelScrnTemplate = ({dimension,maintitle,subtitle,onClick,children}) => {
     return (
         <SafeAreaView style={styles.contan}>
-      <Sreen styles={{justifyContent:"center",alignContent:"center"}}>
+      <Sreen styles={{justifyContent:"center",alignContent:"center",paddingTop:Platform.OS === "android" ? StatusBar.currentHeight+10:0}}>
       <>
       <View style={{width:'90%',alignSelf:"center",marginTop:40,marginBottom:30}}>
         <Text style={{textTransform:"capitalize",fontSize:24,color:"white",fontWeight:"bold",marginBottom:15}}>{maintitle}</Text>
@@ -32,7 +32,6 @@ const WelScrnTemplate = ({dimension,maintitle,subtitle,onClick,children}) => {
 }
 const styles = StyleSheet.create({
     contan: {
-      paddingTop:Platform.OS === "android" ? StatusBar.currentHeight+10:0,
       flex: 1,
       justifyContent:'flex-start'
       
