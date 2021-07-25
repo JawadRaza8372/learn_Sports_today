@@ -71,7 +71,7 @@ const ProflePage = ({navigation}) => {
 
 <View style={{display:"flex",flexDirection:"row",alignItems:'center',justifyContent:"space-evenly",height:120,width:"100%"}}>
   <View style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",backgroundColor:"white",height:90,width:'45%',padding:10,borderRadius:10}}>
-  <Text style={{fontSize:20,color:'white'}}>Your Goal</Text>
+  <Text style={{fontSize:20,color:'black'}}>Your Goal</Text>
   <Text style={{fontSize:8}}>is almost there keep trying</Text>
   </View>
   <View style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",backgroundColor:"green",width:'45%',height:90,padding:10,borderRadius:10}}>

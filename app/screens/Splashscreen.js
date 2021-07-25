@@ -23,7 +23,7 @@ const Splashscreen = ({navigation}) => {
     }, [shuffle])
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate('Welcome');
+            navigation.navigate('Login');
           }, 4000);
        
     }, [])
