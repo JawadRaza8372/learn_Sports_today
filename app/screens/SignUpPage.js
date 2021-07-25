@@ -1,20 +1,16 @@
 import React,{useState,useEffect} from 'react'
 import { SafeAreaView,StyleSheet,View,Text,Platform,StatusBar,ScrollView,TouchableOpacity,Alert, Image, TouchableWithoutFeedback} from 'react-native';
-import { MaterialCommunityIcons} from "@expo/vector-icons";
 import Sreen from "../Components/Sreen"
-import InputField from '../Components/InputField';
-import InputFieldImage from '../Components/InputFieldImage';
 import Forms from '../Components/Forms/Forms';
 import * as Yup from "yup";
 import InputFieldForm from '../Components/Forms/InputFieldForm';
 import FormSubmitButton from '../Components/Forms/FormSubmitButton';
-import MyButton from '../Components/MyButton';
-import * as ImagePicker from "expo-image-picker";
 import FormImagePicker from '../Components/Forms/FormImagePicker';
 
 const SignUpPage= ({navigation}) => {
-    const [images, setimages] = useState(null)
- 
+    const [hidepaswd, sethidepaswd] = useState(true)
+    const [showButton, setshowButton] = useState(false)
+
   
     const validationSchema = Yup.object().shape({
         name:Yup.string().required().min(5).label("Name"),
@@ -29,6 +25,7 @@ const SignUpPage= ({navigation}) => {
             navigation.navigate('Welcome')
           }
           else{
+              setshowButton(true)
             alert("enter same password")
           }
 
@@ -45,8 +42,17 @@ const SignUpPage= ({navigation}) => {
      >
       <InputFieldForm iconName="account" name="name" placeholder="Name" autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
       <InputFieldForm iconName="email" name="email" placeholder="Email" autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
-      <InputFieldForm iconName="lock" name="password" placeholder="Password" secureTextEntry={true} autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
-      <InputFieldForm iconName="lock" name="confirm" placeholder="Confirm Password" secureTextEntry={true} autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
+      <InputFieldForm iconName="lock" name="password" placeholder="Password" secureTextEntry={hidepaswd} autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
+      <InputFieldForm iconName="lock" name="confirm" placeholder="Confirm Password" secureTextEntry={hidepaswd} autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
+     {showButton &&   <TouchableOpacity onPress={()=>{sethidepaswd(!hidepaswd);}}><>
+        <View style={{height:30,width:120,display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center",backgroundColor:"white",marginTop:15,borderRadius:15}}>
+        {hidepaswd && <Text>Show Password</Text>}
+        {!hidepaswd && <Text>Hide Password</Text>}
+        </View></>
+        </TouchableOpacity>
+        }
+      
+
     <FormImagePicker iconName='camera' name="images"/>
       <FormSubmitButton title="Sign Up"/>
      </Forms>

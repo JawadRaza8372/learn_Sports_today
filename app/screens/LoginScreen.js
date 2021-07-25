@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { SafeAreaView,StyleSheet,Text,Platform,StatusBar,TouchableOpacity} from 'react-native';
 import Sreen from "../Components/Sreen"
 import Forms from '../Components/Forms/Forms';
@@ -7,6 +7,9 @@ import InputFieldForm from '../Components/Forms/InputFieldForm';
 import FormSubmitButton from '../Components/Forms/FormSubmitButton';
 
 const LoginScreen= ({navigation}) => {
+  const [hidepaswd, sethidepaswd] = useState(true)
+  const [showButton, setshowButton] = useState(false)
+
   const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label("Email"),
     password: Yup.string().required().min(4).label("Password"),
@@ -28,6 +31,13 @@ const LoginScreen= ({navigation}) => {
      >
       <InputFieldForm iconName="account" name="email" placeholder="Email" autoCompleteType="off" autoCorrect={false} autoCapitalize="none" />
       <InputFieldForm iconName="lock" name="password" placeholder="Password" secureTextEntry={true} autoCompleteType="off" autoCorrect={false} autoCapitalize="none"/>
+      {showButton &&   <TouchableOpacity onPress={()=>{sethidepaswd(!hidepaswd);}}><>
+        <View style={{height:30,width:120,display:"flex",flexDirection:"row",alignItems:"center",justifyContent:"center",backgroundColor:"white",marginTop:15,borderRadius:15}}>
+        {hidepaswd && <Text>Show Password</Text>}
+        {!hidepaswd && <Text>Hide Password</Text>}
+        </View></>
+        </TouchableOpacity>
+        }
       <FormSubmitButton title="Login"/>
      </Forms>
    

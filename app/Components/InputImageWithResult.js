@@ -1,7 +1,6 @@
 import React from 'react'
-import { View, Text,ScrollView,TouchableOpacity,Image } from 'react-native'
+import { View,ScrollView} from 'react-native'
 import InputFieldImage from './InputFieldImage'
-import { MaterialCommunityIcons} from "@expo/vector-icons";
 import ImageWithCross from './ImageWithCross';
 
 const InputImageWithResult = ({iconName,imagesValue,addImage,removeImage}) => {
